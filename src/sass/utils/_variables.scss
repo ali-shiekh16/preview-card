@@ -1,0 +1,19 @@
+// * Colors
+$color-primary: (
+  'normal': hsl(212, 23%, 69%),
+  'dark': hsl(214, 17%, 51%),
+  'darker': hsl(217, 19%, 35%),
+);
+
+$color-white: hsl(210, 46%, 95%);
+
+// * Typography
+$font-family: 'Manrope', Arial, Helvetica, sans-serif;
+$font-weights: (
+  'regular': 500,
+  'bold': 700,
+);
+
+$font-size-body: 1.8rem;
+
+$line-height: 1.5;
