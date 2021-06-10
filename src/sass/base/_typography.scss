@@ -6,8 +6,8 @@ html {
 }
 
 body {
-  font-size: $font-size-body;
   color: map.get($color-primary, 'dark');
+  font-size: $font-size-body;
   line-height: $line-height;
 }
 
@@ -16,7 +16,7 @@ h2,
 h3 {
   color: map.get($color-primary, 'darker');
   line-height: 1;
-  margin: 0.5em 0 0.2em;
+  margin: $headings-margin;
 }
 
 h1 {

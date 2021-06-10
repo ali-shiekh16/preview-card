@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../utils/' as *;
+
+.card {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 lighten(map.get($color-primary, 'normal'), 20%);
+  margin: 2rem 3rem;
+  padding: 3rem;
+}
+
+// * HTML Markup
+
+// <article class="card">
+//   <h2>
+//     Shift the overall look and feel by adding these wonderful touches to
+//     furniture in your home.
+//   </h2>
+//   <p>
+//     Ever been in a room and felt like something was missing? Perhaps it felt
+//     slightly bare and uninviting. I've got some simple tips to hel you make
+//     any room feel complete.
+//   </p>
+// </article>
