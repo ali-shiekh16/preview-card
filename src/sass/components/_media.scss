@@ -1,0 +1,39 @@
+@use '../utils/' as *;
+
+.media {
+  align-items: center;
+  display: flex;
+
+  &__img {
+    border-radius: 2.5em;
+    height: 5em;
+    margin-right: 1em;
+    overflow: hidden;
+    width: 5em;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-body * 1.1;
+    margin-bottom: 0.1em;
+  }
+}
+
+// * HTML Markup
+
+// <div class="media">
+//   <div class="media__img">
+//     <img
+//       src="./images/avatar-michelle.jpg"
+//       alt="A picture of happy client."
+//     />
+//   </div>
+//   <div class="media__content">
+//     <h3 class="media__title">Michelle Appleton</h3>
+//     <p class="media__subtitle">28 Jun 2020</p>
+//   </div>
+// </div>
