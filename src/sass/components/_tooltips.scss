@@ -1,0 +1,169 @@
+@use '../utils/' as *;
+@use 'sass:map';
+
+.tooltip {
+  &__body {
+    background: map.get($color-primary, 'darker');
+    display: none;
+  }
+
+  &__list {
+    align-items: center;
+    display: flex;
+    list-style: none;
+  }
+
+  &__item {
+    margin: 1.2em 0.5em;
+  }
+
+  &__link {
+    color: $color-white;
+    font-size: $font-size-body * 1.1;
+    text-decoration: none;
+  }
+
+  &__icon {
+    background: $color-white;
+    border-radius: 50%;
+    border: 0;
+    color: map.get($color-primary, 'dark');
+    cursor: pointer;
+    font-size: $font-size-body * 0.9;
+    padding: 0.6em;
+  }
+
+  &__text {
+    color: map.get($color-primary, 'dark');
+    font-size: $font-size-body * 0.9;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: map.get($font-weight, 'bold');
+  }
+
+  $this: &;
+  &--active {
+    #{$this}__body {
+      background: map.get($color-primary, 'darker');
+      display: inline-block;
+    }
+
+    #{$this}__icon {
+      background: map.get($color-primary, 'dark');
+      color: $color-white;
+    }
+  }
+
+  @media screen and (max-width: $tablets) {
+    &--active {
+      align-items: center;
+      background: map.get($color-primary, 'darker');
+      border-radius: 0 0 10px 10px;
+      display: flex;
+      justify-content: space-between;
+      overflow: hidden;
+      padding: 0 2em;
+      flex: 1;
+    }
+  }
+
+  @include media($tablets) {
+    $this: &;
+    &--active {
+      #{$this}__body {
+        display: inline-block;
+      }
+    }
+
+    &__body {
+      border-radius: 10px;
+      display: none;
+      padding: 0 1.5em;
+      position: relative;
+
+      &::before {
+        background: map.get($color-primary, 'darker');
+        content: '';
+        height: 1.2em;
+        inset: 100% 50% auto auto;
+        position: absolute;
+        transform: rotate(45deg) translate(0%, -66%);
+        width: 1.2em;
+      }
+
+      &__list {
+        padding: 0 2em;
+      }
+
+      &__item {
+        margin: 1.1em 0.5em 0.9em;
+      }
+    }
+  }
+}
+
+.tooltip-container {
+  &--active {
+    @media screen and (max-width: $tablets) {
+      & > * {
+        &:not(.tooltip) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include media($tablets) {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .tooltip {
+      align-self: center;
+
+      &__body {
+        position: absolute;
+        right: -75px;
+        top: -130%;
+      }
+    }
+  }
+}
+
+// * HTML Markup
+
+// <div class="tooltip-container tooltip-container--active">
+//       <div class="media">
+//         <div class="media__img">
+//           <img
+//             src="./images/avatar-michelle.jpg"
+//             alt="A picture of happy client."
+//           />
+//         </div>
+//         <div class="media__content">
+//           <h3 class="media__title">Michelle Appleton</h3>
+//           <p class="media__subtitle">28 Jun 2020</p>
+//         </div>
+//       </div>
+//       <div class="tooltip tooltip--active">
+//         <div class="tooltip__body">
+//           <ul class="tooltip__list">
+//             <li class="tooltip__item">
+//               <a href="#" class="tooltip__link tooltip__text">Share</a>
+//             </li>
+//             <li class="tooltip__item">
+//               <a href="#" class="tooltip__link fab fa-facebook-f"></a>
+//             </li>
+//             <li class="tooltip__item">
+//               <a href="#" class="tooltip__link fab fa-twitter"></a>
+//             </li>
+//             <li class="tooltip__item">
+//               <a href="#" class="tooltip__link fab fa-pinterest"></a>
+//             </li>
+//           </ul>
+//         </div>
+//         <button class="tooltip__icon">
+//           <i class="fas fa-share"></i>
+//         </button>
+//       </div>
+//     </div>
