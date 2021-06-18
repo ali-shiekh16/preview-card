@@ -1,2 +1,9 @@
 @use './base/' as base;
 @use './components/' as comopnents;
+@use './pages/' as pages;
+
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+}

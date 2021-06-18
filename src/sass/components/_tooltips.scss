@@ -60,10 +60,17 @@
       background: map.get($color-primary, 'darker');
       border-radius: 0 0 10px 10px;
       display: flex;
-      justify-content: space-between;
-      overflow: hidden;
-      padding: 0 2em;
       flex: 1;
+      justify-content: space-between;
+      margin: 0 -2.8em -2em;
+      overflow: hidden;
+      padding: 0.5em 3em 0.5em 2em;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    &--active {
+      margin: 0 -2em -2em;
     }
   }
 
@@ -113,17 +120,23 @@
     }
   }
 
+  display: flex;
+  justify-content: space-between;
+
+  .tooltip {
+    align-self: center;
+  }
+
   @include media($tablets) {
-    display: flex;
-    justify-content: space-between;
     position: relative;
 
     .tooltip {
       align-self: center;
 
       &__body {
+        box-shadow: 5px 5px 20px 0 map.get($color-primary, 'normal');
         position: absolute;
-        right: -75px;
+        right: -108px;
         top: -130%;
       }
     }

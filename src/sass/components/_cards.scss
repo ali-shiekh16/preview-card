@@ -5,6 +5,7 @@
   border-radius: 5px;
   box-shadow: 0 10px 30px 0 lighten(map.get($color-primary, 'normal'), 20%);
   margin: 2rem 3rem;
+  max-width: 1140px;
   padding: 3rem;
 }
 
